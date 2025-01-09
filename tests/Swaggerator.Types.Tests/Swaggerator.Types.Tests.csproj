@@ -17,4 +17,8 @@
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Swaggerator.Types\Swaggerator.Types.csproj" />
+  </ItemGroup>
+
 </Project>
