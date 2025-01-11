@@ -1,7 +1,7 @@
 using Swaggerator.Types.Primitives;
 using YamlDotNet.RepresentationModel;
 
-namespace Swaggerator.Types.YamlNodes
+namespace Swaggerator.Yaml.YamlNodes
 {
     /// <summary>
     ///     YamlNode of <see cref="Property"/>
@@ -16,17 +16,17 @@ namespace Swaggerator.Types.YamlNodes
 
         public YamlNode Create()
         {
-            var serializator = new YamlDotNet.Serialization.Serializer();
-            //var sequence = new YamlSequenceNode();
-            //sequence.Add(new )
-            //var yn = new YamlDotNet.RepresentationModel.YamlSequenceNode();
-            //var s = new YamlDotNet.RepresentationModel.YamlDocument(new YamlScalarNode(_property.Name));
+            var rootNode = new YamlMappingNode();
+            var propertiesNodes = new YamlMappingNode
+            {
+                { "type", _property.Type },
+                { "example", _property.Example },
+                { "format", _property.Format }
+            };
 
-            //yn["type"] = _property.Type;
+            rootNode.Add(_property.Name, propertiesNodes);
 
-            var yamlNode = serializator.Serialize(_property);
-
-            return yamlNode;
+            return rootNode;
         }
 
         public static YamlNode Create(Property property)
