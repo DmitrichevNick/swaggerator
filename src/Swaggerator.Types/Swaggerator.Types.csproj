@@ -5,8 +5,4 @@
     <OutputPath>../../bin/</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="yamldotnet" Version="16.3.0" />
-  </ItemGroup>
-
 </Project>
