@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Swaggerator.Yaml\Swaggerator.Yaml.csproj" />
+    <ProjectReference Include="..\..\src\Swaggerator.Json\Swaggerator.Json.csproj" />
     <ProjectReference Include="..\..\src\Swaggerator.Types\Swaggerator.Types.csproj" />
   </ItemGroup>
 
