@@ -5,10 +5,10 @@ using Swaggerator.Json.JsonNodes;
 namespace Swaggerator.Json.Tests;
 
 [TestClass]
-public class PropertyJsonNodeUnitTests
+public class PropertyNodeUnitTests
 {
     [TestMethod]
-    public void CanCreatePropertyJsonNode()
+    public void CanCreatePropertyNode()
     {
         var property = new Property
         {
@@ -18,8 +18,8 @@ public class PropertyJsonNodeUnitTests
             Type = "testPropertyType"
         };
 
-        var propertyJsonNode = PropertyJsonNode.Create(property);
+        var propertyNode = PropertyNode.Create(property);
 
-        Assert.IsNotNull(propertyJsonNode);
+        Assert.IsNotNull(propertyNode);
     }
 }
