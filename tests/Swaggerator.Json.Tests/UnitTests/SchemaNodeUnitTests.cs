@@ -10,9 +10,8 @@ public class SchemaNodeUnitTests
     [TestMethod]
     public void CanCreateSchemaNode()
     {
-        var schema = new Schema
+        var schema = new Schema("testSchemaName")
         {
-            Name = "testSchemaName",
             Properties = new List<Property>
             {
                 new Property
