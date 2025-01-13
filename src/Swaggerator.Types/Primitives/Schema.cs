@@ -1,19 +1,24 @@
 using System.Collections.Generic;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Primitives
 {
     /// <summary>
     ///     Schema type of OpenAPI
     /// </summary>
-    public class Schema
+    public class Schema : ITyped
     {
         /// <summary>
-        ///     Constructor
+        ///     Constructor with Schema name
         /// </summary>
-        public Schema()
+        /// <param name="name">Schema name</param>
+        public Schema(string name)
         {
+            Name = name;
+            Type = Enums.Type.Object;
             Properties = new List<Property>();
         }
+
         /// <summary>
         ///     Collection of properties of Schema
         /// </summary>
@@ -23,5 +28,8 @@ namespace Swaggerator.Types.Primitives
         ///     Name of schema
         /// </summary>
         public string Name { get; set; }
+
+        /// <inheritdoc />
+        public string Type { get; set; }
     }
 }
