@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Annotations", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Annotations.Tests", "tests\Swaggerator.Annotations.Tests\Swaggerator.Annotations.Tests.csproj", "{63E268EA-E60F-433B-8C2D-0AC78C0C2F3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Swagger", "src\Swaggerator.Swagger\Swaggerator.Swagger.csproj", "{97395ACC-9A60-4013-9F28-68E120B01753}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{63E268EA-E60F-433B-8C2D-0AC78C0C2F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63E268EA-E60F-433B-8C2D-0AC78C0C2F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63E268EA-E60F-433B-8C2D-0AC78C0C2F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97395ACC-9A60-4013-9F28-68E120B01753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97395ACC-9A60-4013-9F28-68E120B01753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97395ACC-9A60-4013-9F28-68E120B01753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97395ACC-9A60-4013-9F28-68E120B01753}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B6C0CC8-3C16-4BE2-8BF2-EBF44E0917DA} = {F696BA51-DE00-4452-A82F-F24493032746}
@@ -88,5 +94,6 @@ Global
 		{CAA7D6CA-BA75-4294-8DF2-05BEADA51120} = {C44044CB-E8AD-4CB5-A151-52F779047047}
 		{C5976024-F792-42A2-916E-712BC9BAE740} = {F696BA51-DE00-4452-A82F-F24493032746}
 		{63E268EA-E60F-433B-8C2D-0AC78C0C2F3E} = {C44044CB-E8AD-4CB5-A151-52F779047047}
+		{97395ACC-9A60-4013-9F28-68E120B01753} = {F696BA51-DE00-4452-A82F-F24493032746}
 	EndGlobalSection
 EndGlobal
