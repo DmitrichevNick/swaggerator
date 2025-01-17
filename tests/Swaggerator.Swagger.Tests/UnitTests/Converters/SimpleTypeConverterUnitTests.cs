@@ -6,7 +6,7 @@ namespace Swaggerator.Swagger.Tests;
 public class SimpleTypeConverterUnitTests
 {
     [TestMethod]
-    public void CanCreateConverter()
+    public void CanCreateWithoutParameters()
     {
         var simpleTypeConverter = new SimpleTypeConverter();
 
