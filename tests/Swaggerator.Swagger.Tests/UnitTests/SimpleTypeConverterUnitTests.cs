@@ -10,7 +10,7 @@ public class SimpleTypeConverterUnitTests
     [TestMethod]
     public void CanCreateWithoutParameters()
     {
-        var simpleTypeConverter = new SimpleTypeConverter();
+        var simpleTypeConverter = new SimplePropertyInfoConverter();
 
         Assert.IsNotNull(simpleTypeConverter);
     }
@@ -19,7 +19,7 @@ public class SimpleTypeConverterUnitTests
     public void CanConvertStringProperty()
     {
         var type = typeof(TestClass).GetProperty(nameof(TestClass.TestStringProperty));
-        var converter = new SimpleTypeConverter();
+        var converter = new SimplePropertyInfoConverter();
 
         var openApiSchema = converter.Convert(type);
 
