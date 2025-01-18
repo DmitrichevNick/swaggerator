@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using System.Linq;
 using System.Reflection;
+
 using Microsoft.OpenApi.Models;
-using Swaggerator.Swagger.Constants;
+
 using Swaggerator.Swagger.Enums;
 using Swaggerator.Swagger.Extensions;
 

@@ -1,4 +1,5 @@
 using System;
+
 using Swaggerator.Swagger.Attributes;
 
 namespace Swaggerator.Swagger.Enums

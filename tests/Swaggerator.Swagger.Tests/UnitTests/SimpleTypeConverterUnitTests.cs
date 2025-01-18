@@ -1,5 +1,7 @@
 using System.Globalization;
+
 using Microsoft.OpenApi.Writers;
+
 using Swaggerator.Swagger.Converters;
 
 namespace Swaggerator.Swagger.Tests;

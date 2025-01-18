@@ -1,4 +1,5 @@
 using Swaggerator.Types.Primitives;
+
 using YamlDotNet.RepresentationModel;
 
 namespace Swaggerator.Yaml.YamlNodes

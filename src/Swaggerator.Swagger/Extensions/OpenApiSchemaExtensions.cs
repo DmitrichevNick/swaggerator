@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text.Json.Serialization;
+
 using Microsoft.OpenApi.Models;
-using Swaggerator.Swagger.Enums;
 
 namespace Swaggerator.Swagger.Extensions
 {

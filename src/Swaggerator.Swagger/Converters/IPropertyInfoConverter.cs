@@ -1,4 +1,5 @@
 using System.Reflection;
+
 using Microsoft.OpenApi.Models;
 
 namespace Swaggerator.Swagger.Converters

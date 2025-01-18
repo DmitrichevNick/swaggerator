@@ -1,6 +1,7 @@
+using System.Text.Json.Nodes;
+
 using Swaggerator.Json.Interfaces;
 using Swaggerator.Types.Primitives;
-using System.Text.Json.Nodes;
 
 namespace Swaggerator.Json.JsonNodes
 {
