@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 using Microsoft.OpenApi.Models;
 
 namespace Swaggerator.Swagger.Repositories

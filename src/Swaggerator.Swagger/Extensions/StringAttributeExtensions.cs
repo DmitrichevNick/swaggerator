@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+
 using Swaggerator.Swagger.Attributes;
 
 namespace Swaggerator.Swagger.Extensions

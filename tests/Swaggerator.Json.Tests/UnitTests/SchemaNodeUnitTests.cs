@@ -1,6 +1,6 @@
 
-using Swaggerator.Types.Primitives;
 using Swaggerator.Json.JsonNodes;
+using Swaggerator.Types.Primitives;
 
 namespace Swaggerator.Json.Tests;
 

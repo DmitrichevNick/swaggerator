@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Primitives
