@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-using Swaggerator.Swagger.Attributes;
+using Swaggerator.Types.Attributes;
 
 namespace Swaggerator.Swagger.Extensions
 {
