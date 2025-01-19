@@ -1,14 +1,14 @@
 using System;
 
-using Swaggerator.Swagger.Attributes;
+using Swaggerator.Types.Attributes;
 
-namespace Swaggerator.Swagger.Enums
+namespace Swaggerator.Types.Enums
 {
     /// <summary>
     ///     Swagger DataTypes
     /// </summary>
     [Flags]
-    public enum SwaggerDataTypes
+    public enum DataType
     {
         [String("string")]
         String = 0,

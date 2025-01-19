@@ -3,6 +3,7 @@ using System.Globalization;
 using Microsoft.OpenApi.Writers;
 
 using Swaggerator.Swagger.Converters;
+using Swaggerator.Swagger.Tests.UnitTests.TestClasses;
 
 namespace Swaggerator.Swagger.Tests;
 
@@ -20,7 +21,8 @@ public class SimpleTypeConverterUnitTests
     [TestMethod]
     public void CanConvertStringProperty()
     {
-        var type = typeof(TestClass).GetProperty(nameof(TestClass.TestStringProperty));
+        var type = typeof(TestClassWithStringPropertyWithoutJson)
+            .GetProperty(nameof(TestClassWithStringPropertyWithoutJson.StringProperty));
         var converter = new SimplePropertyInfoConverter();
 
         var openApiSchema = converter.Convert(type);
@@ -33,12 +35,9 @@ public class SimpleTypeConverterUnitTests
 
             var result = textWriter.ToString();
 
-            Assert.AreEqual(result, "{\n  \"title\": \"TestStringProperty\",\n  \"type\": \"string\"\n}");
+            Assert.AreEqual(result, "{\n  \"title\": \"StringProperty\",\n  \"type\": \"string\"\n}");
         }
     }
 
-    private class TestClass
-    {
-        public string TestStringProperty { get; set; }
-    }
+
 }

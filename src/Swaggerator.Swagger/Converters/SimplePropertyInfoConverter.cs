@@ -16,7 +16,7 @@ namespace Swaggerator.Swagger.Converters
         {
             var type = propertyInfo.PropertyType;
 
-            if (!Types.SimpleTypes.Contains(type))
+            if (!type.IsSimple())
                 throw new InvalidOperationException("Cannot convert composite type as a simple one");
 
             var openApiSchema = new OpenApiSchema();

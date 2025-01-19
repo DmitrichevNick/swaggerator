@@ -1,6 +1,6 @@
 using System;
 
-namespace Swaggerator.Swagger.Attributes
+namespace Swaggerator.Types.Attributes
 {
     /// <summary>
     ///     Attribute that allow define string value of enum element

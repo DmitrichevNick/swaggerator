@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 
 using Swaggerator.Swagger.Constants;
-using Swaggerator.Swagger.Enums;
+using Swaggerator.Types.Enums;
 
 namespace Swaggerator.Swagger.Extensions
 {
@@ -16,13 +16,33 @@ namespace Swaggerator.Swagger.Extensions
     public static class TypeExtensions
     {
         /// <summary>
+        ///     Simple types
+        /// </summary>
+        private static readonly IReadOnlyList<Type> SimpleTypes = new List<Type>
+        {
+            typeof(bool),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong),
+            typeof(float),
+            typeof(double),
+            typeof(decimal),
+            typeof(string),
+            typeof(DateTime),
+            typeof(TimeSpan)
+        };
+
+        /// <summary>
         ///     Type is simple
         /// </summary>
         /// <param name="type">Type</param>
         /// <returns>Is Type simple?</returns>
         public static bool IsSimple(this Type type)
         {
-            return Types.SimpleTypes.Contains(type);
+            return SimpleTypes.Contains(type);
         }
 
         /// <summary>
@@ -57,37 +77,37 @@ namespace Swaggerator.Swagger.Extensions
                 .ToList();
         }
 
-        private static readonly Dictionary<Type, Tuple<SwaggerDataTypes, string>> PrimitiveTypesAndFormats
-      = new Dictionary<Type, Tuple<SwaggerDataTypes, string>>
+        private static readonly Dictionary<Type, Tuple<DataType, string>> PrimitiveTypesAndFormats
+      = new Dictionary<Type, Tuple<DataType, string>>
       {
-          [typeof(bool)] = Tuple.Create(SwaggerDataTypes.Boolean, (string)null),
-          [typeof(byte)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(sbyte)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(short)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(ushort)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(int)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(uint)] = Tuple.Create(SwaggerDataTypes.Integer, "int32"),
-          [typeof(long)] = Tuple.Create(SwaggerDataTypes.Integer, "int64"),
-          [typeof(ulong)] = Tuple.Create(SwaggerDataTypes.Integer, "int64"),
-          [typeof(float)] = Tuple.Create(SwaggerDataTypes.Number, "float"),
-          [typeof(double)] = Tuple.Create(SwaggerDataTypes.Number, "double"),
-          [typeof(decimal)] = Tuple.Create(SwaggerDataTypes.Number, "double"),
-          [typeof(byte[])] = Tuple.Create(SwaggerDataTypes.String, "byte"),
-          [typeof(string)] = Tuple.Create(SwaggerDataTypes.String, (string)null),
-          [typeof(char)] = Tuple.Create(SwaggerDataTypes.String, (string)null),
-          [typeof(DateTime)] = Tuple.Create(SwaggerDataTypes.String, "date-time"),
-          [typeof(DateTimeOffset)] = Tuple.Create(SwaggerDataTypes.String, "date-time"),
-          [typeof(TimeSpan)] = Tuple.Create(SwaggerDataTypes.String, "date-span"),
-          [typeof(Guid)] = Tuple.Create(SwaggerDataTypes.String, "uuid"),
-          [typeof(Uri)] = Tuple.Create(SwaggerDataTypes.String, "uri"),
-          [typeof(Version)] = Tuple.Create(SwaggerDataTypes.String, (string)null),
+          [typeof(bool)] = Tuple.Create(DataType.Boolean, (string)null),
+          [typeof(byte)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(sbyte)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(short)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(ushort)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(int)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(uint)] = Tuple.Create(DataType.Integer, "int32"),
+          [typeof(long)] = Tuple.Create(DataType.Integer, "int64"),
+          [typeof(ulong)] = Tuple.Create(DataType.Integer, "int64"),
+          [typeof(float)] = Tuple.Create(DataType.Number, "float"),
+          [typeof(double)] = Tuple.Create(DataType.Number, "double"),
+          [typeof(decimal)] = Tuple.Create(DataType.Number, "double"),
+          [typeof(byte[])] = Tuple.Create(DataType.String, "byte"),
+          [typeof(string)] = Tuple.Create(DataType.String, (string)null),
+          [typeof(char)] = Tuple.Create(DataType.String, (string)null),
+          [typeof(DateTime)] = Tuple.Create(DataType.String, "date-time"),
+          [typeof(DateTimeOffset)] = Tuple.Create(DataType.String, "date-time"),
+          [typeof(TimeSpan)] = Tuple.Create(DataType.String, "date-span"),
+          [typeof(Guid)] = Tuple.Create(DataType.String, "uuid"),
+          [typeof(Uri)] = Tuple.Create(DataType.String, "uri"),
+          [typeof(Version)] = Tuple.Create(DataType.String, (string)null),
 #if NET6_0_OR_GREATER
-            [typeof(DateOnly)] = Tuple.Create(SwaggerDataTypes.String, "date"),
-            [typeof(TimeOnly)] = Tuple.Create(SwaggerDataTypes.String, "time"),
+            [typeof(DateOnly)] = Tuple.Create(DataType.String, "date"),
+            [typeof(TimeOnly)] = Tuple.Create(DataType.String, "time"),
 #endif
 #if NET7_0_OR_GREATER
-            [ typeof(Int128) ] = Tuple.Create(SwaggerDataTypes.Integer, "int128"),
-            [ typeof(UInt128) ] = Tuple.Create(SwaggerDataTypes.Integer, "int128"),
+            [ typeof(Int128) ] = Tuple.Create(DataType.Integer, "int128"),
+            [ typeof(UInt128) ] = Tuple.Create(DataType.Integer, "int128"),
 #endif
       };
 
@@ -96,7 +116,7 @@ namespace Swaggerator.Swagger.Extensions
         /// </summary>
         /// <param name="type">Type</param>
         /// <returns><Swagger DataType and default format/returns>
-        public static Tuple<SwaggerDataTypes, string> GetSwaggerDataTypeAndFormat(this Type type)
+        public static Tuple<DataType, string> GetSwaggerDataTypeAndFormat(this Type type)
         {
             return PrimitiveTypesAndFormats[type];
         }
