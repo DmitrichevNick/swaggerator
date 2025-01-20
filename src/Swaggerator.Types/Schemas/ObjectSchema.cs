@@ -16,11 +16,14 @@ namespace Swaggerator.Types.Schemas
         {
             Type = Enums.DataType.Object.GetString();
             Required = new HashSet<string>();
+            Properties = new Dictionary<string, Schema>();
         }
 
         /// <summary>
         ///     Unique set of required properties
         /// </summary>
         public ISet<string> Required { get; set; }
+
+        public Dictionary<string, Schema> Properties { get; set; }
     }
 }

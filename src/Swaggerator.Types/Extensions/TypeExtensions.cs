@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Swaggerator.Swagger.Constants
+namespace Swaggerator.Types.Extensions
 {
     /// <summary>
-    ///     Constants of types
+    ///     Extension methods for Type
     /// </summary>
-    public static class Types
+    public static class TypeExtensions
     {
         /// <summary>
         ///     Simple types
         /// </summary>
-        public static readonly IReadOnlyList<Type> SimpleTypes = new List<Type>
+        private static readonly IReadOnlyList<Type> SimpleTypes = new List<Type>
         {
             typeof(bool),
             typeof(short),
@@ -27,5 +28,15 @@ namespace Swaggerator.Swagger.Constants
             typeof(DateTime),
             typeof(TimeSpan)
         };
+
+        /// <summary>
+        ///     Is Type simple?
+        /// </summary>
+        /// <param name="type">Type</param>
+        /// <returns>Result of check</returns>
+        public static bool IsSimple(this Type type)
+        {
+            return SimpleTypes.Contains(type);
+        }
     }
 }

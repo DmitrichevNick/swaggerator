@@ -5,8 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
-using Swaggerator.Swagger.Constants;
 using Swaggerator.Types.Enums;
+using Swaggerator.Types.Extensions;
 
 namespace Swaggerator.Swagger.Extensions
 {
@@ -15,36 +15,6 @@ namespace Swaggerator.Swagger.Extensions
     /// </summary>
     public static class TypeExtensions
     {
-        /// <summary>
-        ///     Simple types
-        /// </summary>
-        private static readonly IReadOnlyList<Type> SimpleTypes = new List<Type>
-        {
-            typeof(bool),
-            typeof(short),
-            typeof(ushort),
-            typeof(int),
-            typeof(uint),
-            typeof(long),
-            typeof(ulong),
-            typeof(float),
-            typeof(double),
-            typeof(decimal),
-            typeof(string),
-            typeof(DateTime),
-            typeof(TimeSpan)
-        };
-
-        /// <summary>
-        ///     Type is simple
-        /// </summary>
-        /// <param name="type">Type</param>
-        /// <returns>Is Type simple?</returns>
-        public static bool IsSimple(this Type type)
-        {
-            return SimpleTypes.Contains(type);
-        }
-
         /// <summary>
         ///     Type is enumerable
         /// </summary>

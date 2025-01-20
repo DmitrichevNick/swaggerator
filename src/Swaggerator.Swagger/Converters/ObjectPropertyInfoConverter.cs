@@ -4,6 +4,7 @@ using System.Reflection;
 using Microsoft.OpenApi.Models;
 
 using Swaggerator.Swagger.Extensions;
+using Swaggerator.Types.Extensions;
 
 namespace Swaggerator.Swagger.Converters
 {
