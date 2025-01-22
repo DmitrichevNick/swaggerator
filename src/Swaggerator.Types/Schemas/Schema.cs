@@ -3,7 +3,7 @@ namespace Swaggerator.Types.Schemas
     /// <summary>
     ///     Abstract of Swagger schema
     /// </summary>
-    public abstract class Schema
+    public abstract class Schema : ISchema
     {
         /// <summary>
         ///     Swagger Type

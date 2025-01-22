@@ -16,7 +16,7 @@ namespace Swaggerator.Types.Schemas
         {
             Type = Enums.DataType.Object.GetString();
             Required = new HashSet<string>();
-            Properties = new Dictionary<string, Schema>();
+            Properties = new Dictionary<string, ISchema>();
         }
 
         /// <summary>
@@ -24,6 +24,6 @@ namespace Swaggerator.Types.Schemas
         /// </summary>
         public ISet<string> Required { get; set; }
 
-        public Dictionary<string, Schema> Properties { get; set; }
+        public Dictionary<string, ISchema> Properties { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Swaggerator.Types.SchemaCreators
     public class ObjectSchemaCreator : ISchemaCreator
     {
         /// <inheritdoc />
-        public Schema Create(Type type)
+        public ISchema Create(Type type)
         {
             var objectSchema = new ObjectSchema();
 
@@ -30,14 +30,16 @@ namespace Swaggerator.Types.SchemaCreators
             return new HashSet<string>(requiredList);
         }
 
-        private Dictionary<string, Schema> GetProperties(Type type)
+        private Dictionary<string, ISchema> GetProperties(Type type)
         {
-            var properties = new Dictionary<string, Schema>();
+            var properties = new Dictionary<string, ISchema>();
             var publicNotIgnoredPropertyInfoList = type.GetProperties(System.Reflection.BindingFlags.Public)
                 .Where(propertyInfo => !propertyInfo.IsIgnored());
 
             foreach (var propertyInfo in publicNotIgnoredPropertyInfoList)
-                properties.Add(propertyInfo.Name, new ArraySchema());
+                properties.Add(
+                    propertyInfo.Name,
+                    SchemaCreatorFactory.CreateSchema(propertyInfo.PropertyType));
 
             return properties;
         }

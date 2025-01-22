@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,13 +91,35 @@ namespace Swaggerator.Types.Extensions
                 || type == typeof(Int128)
                 || type == typeof(UInt128)
 #endif
-            )
+                )
                 return DataType.Integer;
 
             if (type == typeof(float)
                 || type == typeof(double)
                 || type == typeof(decimal))
                 return DataType.Number;
+
+            if (type == typeof(byte[])
+                || type == typeof(string)
+                || type == typeof(char)
+                || type == typeof(DateTime)
+                || type == typeof(DateTimeOffset)
+                || type == typeof(TimeSpan)
+                || type == typeof(Guid)
+                || type == typeof(Uri)
+                || type == typeof(Version)
+#if NET6_0_OR_GREATER
+                || type == typeof(DateOnly)
+                || type == typeof(TimeOnly)
+#endif
+                )
+                return DataType.String;
+
+            if (type is IEnumerable)
+                return DataType.Array;
+
+            if (type is object)
+                return DataType.Object;
 
             throw new ArgumentException($"Converter cannot detect DataType for Type {type}");
         }
