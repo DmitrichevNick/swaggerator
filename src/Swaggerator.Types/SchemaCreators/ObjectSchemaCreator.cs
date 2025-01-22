@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Swaggerator.Types.Extensions;
+using Swaggerator.Types.Properties;
 using Swaggerator.Types.Schemas;
 
 namespace Swaggerator.Types.SchemaCreators
@@ -39,7 +40,7 @@ namespace Swaggerator.Types.SchemaCreators
             foreach (var propertyInfo in publicNotIgnoredPropertyInfoList)
                 properties.Add(
                     propertyInfo.Name,
-                    SchemaCreatorFactory.CreateSchema(propertyInfo.PropertyType));
+                    PropertyCreatorFactory.CreateSchema(propertyInfo));
 
             return properties;
         }
