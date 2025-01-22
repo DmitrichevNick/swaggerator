@@ -74,6 +74,14 @@ namespace Swaggerator.Types.Extensions
             [ typeof(UInt128) ] = Tuple.Create(DataType.Integer, "int128"),
 #endif
               };
+
+        public static string GetDefaultFormat(this Type type)
+        {
+            var tuple = PrimitiveTypesAndFormats[type];
+
+            return tuple.Item2;
+        }
+
         public static DataType GetDataType(this Type type)
         {
             if (type == typeof(bool))
