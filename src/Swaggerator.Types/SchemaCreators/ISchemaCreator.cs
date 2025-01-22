@@ -14,6 +14,6 @@ namespace Swaggerator.Types.SchemaCreators
         /// </summary>
         /// <param name="type">Type</param>
         /// <returns>Schema</returns>
-        Schema Create(Type type);
+        ISchema Create(Type type);
     }
 }
