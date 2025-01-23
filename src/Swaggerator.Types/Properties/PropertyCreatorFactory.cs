@@ -3,7 +3,7 @@ using System.Reflection;
 
 using Swaggerator.Types.Enums;
 using Swaggerator.Types.Extensions;
-using Swaggerator.Types.Schemas;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Properties
 {
@@ -21,17 +21,17 @@ namespace Swaggerator.Types.Properties
             switch (dataType)
             {
                 case DataType.Boolean:
-                    return new StringPropertyCreator();
+                    return new BooleanPropertyCreator();
                 case DataType.Integer:
-                    return new StringPropertyCreator();
+                    return new IntegerPropertyCreator();
                 case DataType.Number:
-                    return new StringPropertyCreator();
+                    return new NumberPropertyCreator();
                 case DataType.String:
                     return new StringPropertyCreator();
                 case DataType.Array:
                     return new StringPropertyCreator();
                 case DataType.Object:
-                    return new StringPropertyCreator();
+                    return new ReferencePropertyCreator();
             }
 
             return null;

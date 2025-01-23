@@ -1,6 +1,6 @@
 using System.Reflection;
 
-using Swaggerator.Types.Schemas;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Properties
 {

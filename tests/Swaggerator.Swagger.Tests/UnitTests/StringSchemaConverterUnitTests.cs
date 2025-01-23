@@ -1,10 +1,4 @@
-using System.Globalization;
-
-using Microsoft.OpenApi.Writers;
-
-using Swaggerator.Swagger.Converters;
 using Swaggerator.Swagger.SchemasConverters;
-using Swaggerator.Swagger.Tests.UnitTests.TestClasses;
 using Swaggerator.Swagger.Tests.Utils;
 using Swaggerator.Types.Schemas;
 

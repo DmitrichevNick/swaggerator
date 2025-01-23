@@ -1,25 +1,27 @@
 using System.Reflection;
 
+using Swaggerator.Types.Extensions;
 using Swaggerator.Types.Interfaces;
 using Swaggerator.Types.Schemas;
 
 namespace Swaggerator.Types.Properties
 {
     /// <summary>
-    ///     Creator of Reference property of Object Schema
+    ///     Creator of integer property of Object Schema
     /// </summary>
-    public class ReferencePropertyCreator : IPropertyCreator
+    public class IntegerPropertyCreator : IPropertyCreator
     {
         /// <summary>
-        ///     Create Reference Schema of Object property
+        ///     Create integer Schema of Object property
         /// </summary>
         /// <param name="propertyInfo">Property</param>
         /// <returns>Schema</returns>
         public ISchema Create(PropertyInfo propertyInfo)
         {
-            var schemaId = propertyInfo.PropertyType.Name;
+            var schema = new IntegerSchema();
+            var defaultFormat = propertyInfo.PropertyType.GetDefaultFormat();
 
-            var schema = new ReferenceSchema($"#/components/schemas/{schemaId}");
+            schema.Format = defaultFormat;
 
             return schema;
         }
