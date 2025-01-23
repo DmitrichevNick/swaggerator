@@ -1,6 +1,6 @@
 using System;
 
-using Swaggerator.Types.Schemas;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.SchemaCreators
 {

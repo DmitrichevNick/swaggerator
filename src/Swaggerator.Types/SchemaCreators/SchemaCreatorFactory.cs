@@ -2,7 +2,7 @@ using System;
 
 using Swaggerator.Types.Enums;
 using Swaggerator.Types.Extensions;
-using Swaggerator.Types.Schemas;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.SchemaCreators
 {

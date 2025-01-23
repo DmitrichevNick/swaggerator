@@ -1,4 +1,5 @@
 using Swaggerator.Swagger.Extensions;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Schemas
 {
@@ -19,7 +20,7 @@ namespace Swaggerator.Types.Schemas
         /// <summary>
         ///     Items Schema of array
         /// </summary>
-        public Schema Items { get; set; }
+        public ISchema Items { get; set; }
 
         /// <summary>
         ///     Are Items of Array unique?

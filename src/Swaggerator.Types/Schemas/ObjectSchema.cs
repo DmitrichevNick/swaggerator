@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using Swaggerator.Swagger.Extensions;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Types.Schemas
 {

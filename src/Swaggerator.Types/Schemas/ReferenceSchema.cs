@@ -1,3 +1,5 @@
+using Swaggerator.Types.Interfaces;
+
 namespace Swaggerator.Types.Schemas
 {
     /// <summary>

@@ -1,6 +1,7 @@
 using System.Reflection;
 
 using Swaggerator.Types.Extensions;
+using Swaggerator.Types.Interfaces;
 using Swaggerator.Types.Schemas;
 
 namespace Swaggerator.Types.Properties
