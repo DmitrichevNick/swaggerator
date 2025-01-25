@@ -1,5 +1,5 @@
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -17,7 +17,7 @@ namespace Swaggerator.Types.Extensions
         /// <returns>Is marked as required?</returns>
         public static bool IsRequired(this PropertyInfo propertyInfo)
         {
-            return propertyInfo.GetCustomAttribute<RequiredAttributeAttribute>() != null
+            return propertyInfo.GetCustomAttribute<RequiredAttribute>() != null
             || propertyInfo.GetCustomAttribute<JsonRequiredAttribute>() != null;
         }
 

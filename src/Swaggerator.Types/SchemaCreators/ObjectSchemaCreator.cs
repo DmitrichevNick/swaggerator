@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 using Swaggerator.Types.Extensions;
 using Swaggerator.Types.Interfaces;
@@ -22,9 +23,14 @@ namespace Swaggerator.Types.SchemaCreators
             return objectSchema;
         }
 
+        private IEnumerable<PropertyInfo> GetPublicProperties(Type type)
+        {
+            return type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        }
+
         private ISet<string> GetRequired(Type type)
         {
-            var requiredList = type.GetProperties(System.Reflection.BindingFlags.Public)
+            var requiredList = GetPublicProperties(type)
                 .Where(propertyInfo => propertyInfo.IsRequired())
                 .Select(propertyInfo => propertyInfo.Name)
                 .Distinct();
@@ -35,10 +41,10 @@ namespace Swaggerator.Types.SchemaCreators
         private Dictionary<string, ISchema> GetProperties(Type type)
         {
             var properties = new Dictionary<string, ISchema>();
-            var publicNotIgnoredPropertyInfoList = type.GetProperties(System.Reflection.BindingFlags.Public)
+            var notIgnoredProperties = GetPublicProperties(type)
                 .Where(propertyInfo => !propertyInfo.IsIgnored());
 
-            foreach (var propertyInfo in publicNotIgnoredPropertyInfoList)
+            foreach (var propertyInfo in notIgnoredProperties)
                 properties.Add(
                     propertyInfo.Name,
                     PropertyCreatorFactory.CreateSchema(propertyInfo));
