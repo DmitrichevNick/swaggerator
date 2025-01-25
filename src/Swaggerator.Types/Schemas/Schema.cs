@@ -10,6 +10,6 @@ namespace Swaggerator.Types.Schemas
         /// <summary>
         ///     Swagger Type
         /// </summary>
-        public string Type { get; set; }
+        public string Type { get; protected set; }
     }
 }
