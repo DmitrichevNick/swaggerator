@@ -123,7 +123,7 @@ namespace Swaggerator.Types.Extensions
                 )
                 return DataType.String;
 
-            if (type is IEnumerable)
+            if (typeof(IEnumerable).IsAssignableFrom(type))
                 return DataType.Array;
 
             if (type is object)

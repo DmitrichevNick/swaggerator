@@ -140,4 +140,16 @@ public class ObjectSchemaCreatorUnitTests
 
         Assert.AreNotEqual(_zeroCount, schemasCount);
     }
+
+    [TestMethod]
+    public void Create_ClassWithArrayProperty_HasArraySchemaProperty()
+    {
+        const int _zeroCount = 0;
+        var creator = new ObjectSchemaCreator();
+
+        var result = (ObjectSchema)creator.Create(typeof(ClassWithArrayProperty<int>));
+        var schemasCount = result.Properties.Count(property => property.Value is ArraySchema);
+
+        Assert.AreNotEqual(_zeroCount, schemasCount);
+    }
 }

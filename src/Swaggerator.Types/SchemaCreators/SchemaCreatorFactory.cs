@@ -20,15 +20,15 @@ namespace Swaggerator.Types.SchemaCreators
             switch (dataType)
             {
                 case DataType.Boolean:
-                    return new ObjectSchemaCreator();
+                    return new BooleanSchemaCreator();
                 case DataType.Integer:
-                    return new ObjectSchemaCreator();
+                    return new IntegerSchemaCreator();
                 case DataType.Number:
-                    return new ObjectSchemaCreator();
+                    return new NumberSchemaCreator();
                 case DataType.String:
-                    return new ObjectSchemaCreator();
+                    return new StringSchemaCreator();
                 case DataType.Array:
-                    return new ObjectSchemaCreator();
+                    return new ArraySchemaCreator();
                 case DataType.Object:
                     return new ReferenceSchemaCreator();
             }
