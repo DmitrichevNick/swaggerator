@@ -1,29 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 using Swaggerator.Types.Interfaces;
-using Swaggerator.Types.SchemaCreators;
 using Swaggerator.Types.Schemas;
 
-namespace Swaggerator.Types.Properties
+namespace Swaggerator.Types.SchemaCreators
 {
     /// <summary>
-    ///     Creator of array property of Object Schema
+    ///     Creator of Schema with array type
     /// </summary>
-    public class ArrayPropertyCreator : IPropertyCreator
+    public class ArraySchemaCreator : ISchemaCreator
     {
-        /// <summary>
-        ///     Create array Schema of Object property
-        /// </summary>
-        /// <param name="propertyInfo">Property</param>
-        /// <returns>Schema</returns>
-        public ISchema Create(PropertyInfo propertyInfo)
+        /// <inheritdoc />
+        public ISchema Create(Type type)
         {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type), "Parameter 'type' cannot be null.");
+
+            //if (type != typeof(bool))
+            //    throw new InvalidOperationException("Cannot create array schema for non-array type");
+
             var schema = new ArraySchema();
 
-            var innerType = GetBaseTypeOfEnumerable(propertyInfo.PropertyType);
+            var innerType = GetBaseTypeOfEnumerable(type);
             var innerSchema = SchemaCreatorFactory.CreateSchema(innerType);
 
             schema.Items = innerSchema;

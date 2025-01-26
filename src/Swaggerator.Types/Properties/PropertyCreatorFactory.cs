@@ -29,7 +29,7 @@ namespace Swaggerator.Types.Properties
                 case DataType.String:
                     return new StringPropertyCreator();
                 case DataType.Array:
-                    return new StringPropertyCreator();
+                    return new ArrayPropertyCreator();
                 case DataType.Object:
                     return new ReferencePropertyCreator();
             }
