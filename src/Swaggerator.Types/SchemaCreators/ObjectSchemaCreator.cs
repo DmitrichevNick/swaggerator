@@ -5,7 +5,6 @@ using System.Reflection;
 
 using Swaggerator.Types.Extensions;
 using Swaggerator.Types.Interfaces;
-using Swaggerator.Types.Properties;
 using Swaggerator.Types.Schemas;
 
 namespace Swaggerator.Types.SchemaCreators
@@ -21,6 +20,19 @@ namespace Swaggerator.Types.SchemaCreators
             objectSchema.Properties = GetProperties(type);
 
             return objectSchema;
+        }
+
+        /// <inheritdoc />
+        public ISchema Create(PropertyInfo propertyInfo)
+        {
+            if (propertyInfo == null)
+                throw new ArgumentNullException(nameof(propertyInfo), "Parameter 'propertyInfo' cannot be null.");
+
+            var schemaId = propertyInfo.PropertyType.Name;
+
+            var schema = new ReferenceSchema($"#/components/schemas/{schemaId}");
+
+            return schema;
         }
 
         private IEnumerable<PropertyInfo> GetPublicProperties(Type type)
@@ -47,7 +59,7 @@ namespace Swaggerator.Types.SchemaCreators
             foreach (var propertyInfo in notIgnoredProperties)
                 properties.Add(
                     propertyInfo.Name,
-                    PropertyCreatorFactory.CreateSchema(propertyInfo));
+                    SchemaCreatorFactory.CreateSchema(propertyInfo));
 
             return properties;
         }

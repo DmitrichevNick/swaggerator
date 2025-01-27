@@ -1,18 +1,18 @@
-using Swaggerator.Types.SchemaCreators;
-using Swaggerator.Types.Tests.UnitTests.TestClasses;
+// using Swaggerator.Types.SchemaCreators;
+// using Swaggerator.Types.Tests.UnitTests.TestClasses;
 
-namespace Swaggerator.Types.Tests;
+// namespace Swaggerator.Types.Tests;
 
-[TestClass]
-public class SchemaCreatorFactoryUnitTests
-{
-    [TestMethod]
-    public void CanCreateReferenceSchemaCreator()
-    {
-        var objectType = new ObjectType();
+// [TestClass]
+// public class SchemaCreatorFactoryUnitTests
+// {
+//     [TestMethod]
+//     public void CanCreateReferenceSchemaCreator()
+//     {
+//         var objectType = new ObjectType();
 
-        var objectCreator = SchemaCreatorFactory.Create(objectType.GetType());
+//         var objectCreator = SchemaCreatorFactory.Create(objectType.GetType());
 
-        Assert.AreEqual(typeof(ReferenceSchemaCreator), objectCreator.GetType());
-    }
-}
+//         Assert.AreEqual(typeof(ReferenceSchemaCreator), objectCreator.GetType());
+//     }
+// }

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 using Swaggerator.Types.Extensions;
 using Swaggerator.Types.Interfaces;
@@ -25,6 +26,17 @@ namespace Swaggerator.Types.SchemaCreators
             var defaultFormat = type.GetDefaultFormat();
 
             schema.Format = defaultFormat;
+
+            return schema;
+        }
+
+        /// <inheritdoc />
+        public ISchema Create(PropertyInfo propertyInfo)
+        {
+            if (propertyInfo == null)
+                throw new ArgumentNullException(nameof(propertyInfo), "Parameter 'propertyInfo' cannot be null.");
+
+            var schema = Create(propertyInfo.PropertyType);
 
             return schema;
         }
