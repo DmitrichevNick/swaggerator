@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 using Swaggerator.Types.Interfaces;
 
@@ -15,5 +16,12 @@ namespace Swaggerator.Types.SchemaCreators
         /// <param name="type">Type</param>
         /// <returns>Schema</returns>
         ISchema Create(Type type);
+
+        /// <summary>
+        ///     Create Schema by PropertyInfo
+        /// </summary>
+        /// <param name="type">Type</param>
+        /// <returns>Schema</returns>
+        ISchema Create(PropertyInfo propertyInfo);
     }
 }

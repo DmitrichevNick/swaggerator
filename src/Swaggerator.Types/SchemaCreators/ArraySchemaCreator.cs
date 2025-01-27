@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 using Swaggerator.Types.Interfaces;
 using Swaggerator.Types.Schemas;
@@ -27,6 +28,17 @@ namespace Swaggerator.Types.SchemaCreators
             var innerSchema = SchemaCreatorFactory.CreateSchema(innerType);
 
             schema.Items = innerSchema;
+
+            return schema;
+        }
+
+        /// <inheritdoc />
+        public ISchema Create(PropertyInfo propertyInfo)
+        {
+            if (propertyInfo == null)
+                throw new ArgumentNullException(nameof(propertyInfo), "Parameter 'propertyInfo' cannot be null.");
+
+            var schema = Create(propertyInfo.PropertyType);
 
             return schema;
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 using Swaggerator.Types.Interfaces;
 using Swaggerator.Types.Schemas;
@@ -20,6 +21,17 @@ namespace Swaggerator.Types.SchemaCreators
                 throw new InvalidOperationException("Cannot create boolean schema for non-boolean type");
 
             return new BooleanSchema();
+        }
+
+        /// <inheritdoc />
+        public ISchema Create(PropertyInfo propertyInfo)
+        {
+            if (propertyInfo == null)
+                throw new ArgumentNullException(nameof(propertyInfo), "Parameter 'propertyInfo' cannot be null.");
+
+            var schema = Create(propertyInfo.PropertyType);
+
+            return schema;
         }
     }
 }

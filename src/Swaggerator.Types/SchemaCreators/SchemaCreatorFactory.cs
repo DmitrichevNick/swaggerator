@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 using Swaggerator.Types.Enums;
 using Swaggerator.Types.Extensions;
@@ -30,7 +31,7 @@ namespace Swaggerator.Types.SchemaCreators
                 case DataType.Array:
                     return new ArraySchemaCreator();
                 case DataType.Object:
-                    return new ReferenceSchemaCreator();
+                    return new ObjectSchemaCreator();
             }
 
             return null;
@@ -41,6 +42,13 @@ namespace Swaggerator.Types.SchemaCreators
             var creator = Create(type);
 
             return creator.Create(type);
+        }
+
+        public static ISchema CreateSchema(PropertyInfo propertyInfo)
+        {
+            var creator = Create(propertyInfo.PropertyType);
+
+            return creator.Create(propertyInfo);
         }
     }
 }
