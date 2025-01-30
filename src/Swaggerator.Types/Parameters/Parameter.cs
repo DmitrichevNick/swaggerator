@@ -3,14 +3,23 @@ using Swaggerator.Types.Interfaces;
 namespace Swaggerator.Types.Parameters
 {
     /// <summary>
-    ///     Abstract parameter of endpoint
+    ///     Parameter of endpoint
     /// </summary>
-    public abstract class Parameter : IDescribed, INamed
+    public abstract class Parameter
     {
-        /// <inheritdoc />
+        /// <summary>
+        ///     Description of parameter
+        /// </summary>
         public string Description { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Name of parameter
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        ///     Schema of parameter
+        /// </summary>
+        public ISchema Schema { get; set; }
     }
 }
