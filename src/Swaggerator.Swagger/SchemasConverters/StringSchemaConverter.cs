@@ -7,7 +7,7 @@ using Swaggerator.Types.Schemas;
 namespace Swaggerator.Swagger.SchemasConverters
 {
     /// <summary>
-    ///     SchemaConverter for primitive string types
+    ///     SchemaConverter for <see cref="StringSchema"/>
     /// </summary>
     public class StringSchemaConverter : ISchemaConverter
     {
@@ -17,7 +17,7 @@ namespace Swaggerator.Swagger.SchemasConverters
             if (schema == null) throw new ArgumentNullException(nameof(schema));
 
             if (schema is StringSchema stringSchema)
-                return Convert(schema as StringSchema);
+                return Convert(stringSchema);
 
             throw new ArgumentException($"Cannot convert schema of type {schema.GetType()}");
         }
