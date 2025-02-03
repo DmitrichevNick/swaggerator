@@ -1,6 +1,6 @@
 using Microsoft.OpenApi.Models;
 
-using Swaggerator.Types.Schemas;
+using Swaggerator.Types.Interfaces;
 
 namespace Swaggerator.Swagger.SchemasConverters
 {
@@ -14,6 +14,6 @@ namespace Swaggerator.Swagger.SchemasConverters
         /// </summary>
         /// <param name="schema">Schema</param>
         /// <returns>OpenApiSchema</returns>
-        OpenApiSchema Convert(Schema schema);
+        OpenApiSchema Convert(ISchema schema);
     }
 }

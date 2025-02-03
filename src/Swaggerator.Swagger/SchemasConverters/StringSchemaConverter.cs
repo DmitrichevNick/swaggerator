@@ -2,6 +2,7 @@ using System;
 
 using Microsoft.OpenApi.Models;
 
+using Swaggerator.Types.Interfaces;
 using Swaggerator.Types.Schemas;
 
 namespace Swaggerator.Swagger.SchemasConverters
@@ -12,7 +13,7 @@ namespace Swaggerator.Swagger.SchemasConverters
     public class StringSchemaConverter : ISchemaConverter
     {
         /// <inheritdoc />
-        public OpenApiSchema Convert(Schema schema)
+        public OpenApiSchema Convert(ISchema schema)
         {
             if (schema == null) throw new ArgumentNullException(nameof(schema));
 

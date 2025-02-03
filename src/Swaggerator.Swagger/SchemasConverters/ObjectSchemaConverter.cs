@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 using Microsoft.OpenApi.Models;
 
@@ -8,27 +9,31 @@ using Swaggerator.Types.Schemas;
 namespace Swaggerator.Swagger.SchemasConverters
 {
     /// <summary>
-    ///     SchemaConverter for <see cref="IntegerSchema"/>
+    ///     SchemaConverter for <see cref="ObjectSchema"/>
     /// </summary>
-    public class IntegerSchemaConverter : ISchemaConverter
+    public class ObjectSchemaConverter : ISchemaConverter
     {
         /// <inheritdoc />
         public OpenApiSchema Convert(ISchema schema)
         {
             if (schema == null) throw new ArgumentNullException(nameof(schema));
 
-            if (schema is IntegerSchema integerSchema)
-                return Convert(integerSchema);
+            if (schema is ObjectSchema objectSchema)
+                return Convert(objectSchema);
 
             throw new ArgumentException($"Cannot convert schema of type {schema.GetType()}");
         }
 
-        private OpenApiSchema Convert(IntegerSchema integerSchema)
+        private OpenApiSchema Convert(ObjectSchema objectSchema)
         {
             var openApiSchema = new OpenApiSchema
             {
-                Type = integerSchema.Type,
-                Format = integerSchema.Format
+                Type = objectSchema.Type,
+                Required = objectSchema.Required,
+                Properties = objectSchema.Properties
+                    .ToDictionary(
+                        property => property.Key,
+                        property => SchemaConverterFactory.Create(property.Value).Convert(property.Value))
             };
 
             return openApiSchema;
