@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputPath>../../bin/</OutputPath>
+    <LanguageVersion>8.0</LanguageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.1" />
+  </ItemGroup>
+
+</Project>

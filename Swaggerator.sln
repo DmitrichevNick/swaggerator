@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Types", "src\Sw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Types.Tests", "tests\Swaggerator.Types.Tests\Swaggerator.Types.Tests.csproj", "{038E2E5C-BFAD-494D-9497-8918B636772D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Configurer", "src\Swaggerator.Configurer\Swaggerator.Configurer.csproj", "{DE678050-342A-457E-8623-D2EEF325F691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swaggerator.Configurer.Tests", "tests\Swaggerator.Configurer.Tests\Swaggerator.Configurer.Tests.csproj", "{F8DC1AF5-E635-4780-9B5A-9E077213B564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{038E2E5C-BFAD-494D-9497-8918B636772D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{038E2E5C-BFAD-494D-9497-8918B636772D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{038E2E5C-BFAD-494D-9497-8918B636772D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE678050-342A-457E-8623-D2EEF325F691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE678050-342A-457E-8623-D2EEF325F691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE678050-342A-457E-8623-D2EEF325F691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE678050-342A-457E-8623-D2EEF325F691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8DC1AF5-E635-4780-9B5A-9E077213B564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DC1AF5-E635-4780-9B5A-9E077213B564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DC1AF5-E635-4780-9B5A-9E077213B564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DC1AF5-E635-4780-9B5A-9E077213B564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B6C0CC8-3C16-4BE2-8BF2-EBF44E0917DA} = {F696BA51-DE00-4452-A82F-F24493032746}
@@ -74,5 +86,7 @@ Global
 		{0BA236E0-EE72-44A7-85FB-DB325A6F0CEB} = {C44044CB-E8AD-4CB5-A151-52F779047047}
 		{75143134-59BA-4A4C-8CD8-08D40A53E4D2} = {F696BA51-DE00-4452-A82F-F24493032746}
 		{038E2E5C-BFAD-494D-9497-8918B636772D} = {C44044CB-E8AD-4CB5-A151-52F779047047}
+		{DE678050-342A-457E-8623-D2EEF325F691} = {F696BA51-DE00-4452-A82F-F24493032746}
+		{F8DC1AF5-E635-4780-9B5A-9E077213B564} = {C44044CB-E8AD-4CB5-A151-52F779047047}
 	EndGlobalSection
 EndGlobal
